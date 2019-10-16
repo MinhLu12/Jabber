@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from pymongo import MongoClient
 
 app = Flask(__name__, template_folder = './client/templates')
 
@@ -7,7 +8,21 @@ wsgi_app = app.wsgi_app
 
 
 @app.route('/')
-def hello(name = 'Minh'):
+def hello():
+    client = MongoClient('mongodb://localhost:27017/');
+    mydb = client["test"];
+
+    posts = mydb.posts;
+    
+    post_data = {
+        'title': 'Python and MongoDB',
+        'content': 'PyMongo is fun, you guys',
+        'author': 'Scott'
+    }
+    result = posts.insert_one(post_data);
+
+    name = posts.find_one({'author': 'Scott'});
+
     return render_template('index.html', name = name);
 
 if __name__ == '__main__':
