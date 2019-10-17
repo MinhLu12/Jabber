@@ -8,7 +8,7 @@ app = Flask(__name__)
 wsgi_app = app.wsgi_app
 
 
-@app.route('/')
+@app.route('/test', methods = ["GET"])
 def hello():
     client = MongoClient('mongodb://localhost:27017/');
     mydb = client["test"];
