@@ -1,7 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, jsonify
 from pymongo import MongoClient
+from bson.json_util import dumps
 
-app = Flask(__name__, template_folder = './client/templates')
+app = Flask(__name__)
 
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
@@ -14,16 +15,16 @@ def hello():
 
     posts = mydb.posts;
     
-    post_data = {
-        'title': 'Python and MongoDB',
-        'content': 'PyMongo is fun, you guys',
-        'author': 'Scott'
-    }
-    result = posts.insert_one(post_data);
+    #post_data = {
+    #    'title': 'Python and MongoDB',
+    #    'content': 'PyMongo is fun, you guys',
+    #    'author': 'Scott'
+    #}
+    #result = posts.insert_one(post_data);
 
     name = posts.find_one({'author': 'Scott'});
 
-    return render_template('index.html', name = name);
+    return dumps(name);
 
 if __name__ == '__main__':
     import os
