@@ -1,8 +1,10 @@
 from flask import Flask, jsonify
 from pymongo import MongoClient
 from bson.json_util import dumps
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
@@ -33,4 +35,4 @@ if __name__ == '__main__':
         PORT = int(os.environ.get('SERVER_PORT', '5555'))
     except ValueError:
         PORT = 5555
-    app.run(HOST, PORT)
+    app.run(HOST, PORT, debug = True)
