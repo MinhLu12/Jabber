@@ -31,6 +31,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.py" />
+    <Compile Include="repositories\database_singleton.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="repositories\user_repository.py">
       <SubType>Code</SubType>
     </Compile>

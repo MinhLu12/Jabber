@@ -15,7 +15,7 @@ wsgi_app = app.wsgi_app
 def get_users():
     return user_repository.get_users()
 
-@app.route('/api/users', methods = ['POST'])
+@app.route('/api/users/', methods = ['POST'])
 def create_user():
     user_repository.create_user()
 

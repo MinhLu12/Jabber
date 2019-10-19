@@ -1,16 +1,9 @@
-from pymongo import *
-from bson.json_util import *
-
-client = MongoClient('mongodb://localhost:27017/')
-mydb = client["test"]
-
-posts = mydb.posts
+from bson.json_util import dumps
+from .database_singleton import db
 
 def create_user():
-    post_data = {
-        'name': 'minh'
-    }
-    posts.insert_one(post_data)
+    post_data = { 'name': 'minh' }
+    db().users.insert_one(post_data)
 
 def get_users():
-    return dumps(posts.find_one({'name': 'minh'}))
+    return dumps(db().users.find_one({'name': 'minh'}))
