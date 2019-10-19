@@ -31,6 +31,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.py" />
+    <Compile Include="repositories\user_repository.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="repositories\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tests\test_1.py">
       <SubType>Code</SubType>
     </Compile>
@@ -50,6 +56,7 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="repositories\" />
     <Folder Include="tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
