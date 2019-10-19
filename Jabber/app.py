@@ -1,23 +1,24 @@
-from flask import Flask, jsonify
-from pymongo import MongoClient
-from bson.json_util import dumps
+from flask import Flask
+from flask_restful import Resource, Api
 from flask_cors import CORS
 
 from repositories import user_repository
 
 app = Flask(__name__)
+api = Api(app)
 CORS(app, resources={r'/api/*': {"origins": "http://localhost:8080"}}, allow_headers='Content-Type')
 
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
 
-@app.route('/api/users', methods = ['GET'])
-def get_users():
-    return user_repository.get_users()
+class Users(Resource):
+    def get(self):
+        return user_repository.get_users()
 
-@app.route('/api/users/', methods = ['POST'])
-def create_user():
-    user_repository.create_user()
+    def post(self):
+        return user_repository.create_user()
+
+api.add_resource(Users, '/api/users')
 
 if __name__ == '__main__':
     import os
