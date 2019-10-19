@@ -11,20 +11,20 @@ wsgi_app = app.wsgi_app
 
 @app.route('/api/users', methods = ["GET"])
 def get_users():
-    #client = MongoClient('mongodb://localhost:27017/');
-    #mydb = client["test"];
+    client = MongoClient('mongodb://localhost:27017/')
+    mydb = client["test"]
 
-    #posts = mydb.posts
-    ##post_data = {
-    ##    'title': 'Python and MongoDB',
-    ##    'content': 'PyMongo is fun, you guys',
-    ##    'author': 'Scott'
-    ##}
-    ##result = posts.insert_one(post_data);
+    posts = mydb.posts
+    post_data = {
+        'title': 'Python and MongoDB',
+        'content': 'PyMongo is fun, you guys',
+        'author': 'Scott'
+    }
+    result = posts.insert_one(post_data)
 
-    #name = posts.find_one({'author': 'Scott'});
+    name = posts.find_one({'author': 'Scott'})
 
-    return jsonify("dfd");
+    return dumps(name)
 
 if __name__ == '__main__':
     import os
