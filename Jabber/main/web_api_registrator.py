@@ -5,11 +5,11 @@ from main.configurations import Configuration as config
 def register_web_api_s():
     app = Flask(__name__)
 
-    register_user_api(app)
+    __register_user_api(app)
 
     return app
 
-def register_user_api(app):
+def __register_user_api(app):
     app.register_blueprint(
         user_blueprint,
         url_prefix="{prefix}/v{version}".format(

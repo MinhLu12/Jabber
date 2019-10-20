@@ -1,7 +1,7 @@
 import os
 
 class Configuration:
-    configurations = {
+    __configurations = {
         "PORT": 5000,
         "HOST": os.environ.get('SERVER_HOST', 'localhost'),
         "URL_PREFIX": "/api",
@@ -10,4 +10,4 @@ class Configuration:
 
     @staticmethod
     def get(name):
-        return Configuration.configurations[name]
+        return Configuration.__configurations[name]
