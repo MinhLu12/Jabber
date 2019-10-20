@@ -1,17 +1,22 @@
 from flask import Flask, Blueprint
-import flask_restful
+from flask_restful import Resource, Api
+from repositories import user_repository as repository
 
+blueprint = Blueprint('user_api', __name__)
+api = Api(blueprint)
 
-api_v1_bp = Blueprint('api_v1', __name__)
-api_v1 = flask_restful.Api(api_v1_bp)
-
-
-class HelloWorld(flask_restful.Resource):
+class UserCollection(Resource):
     def get(self):
-        return {
-            'hello': 'world',
-            'version': 1,
-            }
+        return repository.get_users()
 
+api.add_resource(UserCollection, '/users')
 
-api_v1.add_resource(HelloWorld, '/helloworld')
+class User(Resource):
+    def post(self):
+        parser.add_argument('name', type = str, required = True)
+        parser.add_argument('age', type = int, required = True)
+        args = parser.parse_args()
+
+        return repository.create_user(args['name'], args['age'])
+
+api.add_resource(User, '/api/user')
