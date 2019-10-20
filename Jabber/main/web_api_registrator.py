@@ -1,10 +1,8 @@
 from flask import Flask
-import flask_restful
-import os
 
-from v1 import api_v1_bp
+from web_api_s.user_api import api_v1_bp
 
-def create_app(environment=None):
+def create_app():
     app = Flask(__name__)
 
     app.register_blueprint(
