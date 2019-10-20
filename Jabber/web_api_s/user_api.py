@@ -2,14 +2,14 @@ from flask import Flask, Blueprint
 from flask_restful import Resource, Api
 from repositories import user_repository as repository
 
-blueprint = Blueprint('user_api', __name__)
-api = Api(blueprint)
+user_blueprint = Blueprint('user_api', __name__)
+user_api = Api(user_blueprint)
 
 class UserCollection(Resource):
     def get(self):
         return repository.get_users()
 
-api.add_resource(UserCollection, '/users')
+user_api.add_resource(UserCollection, '/users')
 
 class User(Resource):
     def post(self):
@@ -19,4 +19,4 @@ class User(Resource):
 
         return repository.create_user(args['name'], args['age'])
 
-api.add_resource(User, '/api/user')
+user_api.add_resource(User, '/api/user')

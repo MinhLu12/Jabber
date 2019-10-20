@@ -1,5 +1,5 @@
 from flask import Flask
-from web_api_s.user_api import user_api
+from web_api_s.user_api import user_blueprint
 from main.configurations import Configuration as config
 
 def register_web_api_s():
@@ -11,7 +11,7 @@ def register_web_api_s():
 
 def register_user_api(app):
     app.register_blueprint(
-        user_api,
+        user_blueprint,
         url_prefix="{prefix}/v{version}".format(
             prefix = config.get("URL_PREFIX"),
             version = config.get("API_VERSION")))
