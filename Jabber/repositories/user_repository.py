@@ -6,4 +6,5 @@ def create_user(name, age):
     return dumps(created_user.inserted_id)
 
 def get_users():
-    return dumps(db().users.find_one({'name': 'minh'}))
+    all_users = list(db().users.find())
+    return dumps(all_users)
