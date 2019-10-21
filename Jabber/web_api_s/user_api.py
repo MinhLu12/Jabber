@@ -13,11 +13,15 @@ user_api.add_resource(UserCollection, '/users')
 
 class User(Resource):
     def post(self):
+        args = self.__get_passed_in_request()
+
+        return repository.create_user(args['name'], args['age'])
+
+    def __get_passed_in_request(self):
         parser = reqparse.RequestParser()
         parser.add_argument('name', type = str, required = True)
         parser.add_argument('age', type = int, required = True)
-        args = parser.parse_args()
 
-        return repository.create_user(args['name'], args['age'])
+        return parser.parse_args()
 
 user_api.add_resource(User, '/user')
