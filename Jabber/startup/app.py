@@ -1,5 +1,5 @@
-from main.web_api_registrator import register_web_api_s
-from main.configurations import Configuration as config
+from startup.web_api_registrator import register_web_api_s
+from startup.configurations import Configuration as config
 from flask_cors import CORS
 
 app = register_web_api_s()

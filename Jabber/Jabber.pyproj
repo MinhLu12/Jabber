@@ -6,7 +6,7 @@
     <ProjectGuid>81aeafca-b7f2-46e5-a15c-3225330b86a6</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <ProjectTypeGuids>{789894c7-04a9-4a11-a6b5-3f4435165112};{1b580a1a-fdb3-4b32-83e1-6407eb2722e6};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
-    <StartupFile>main\app.py</StartupFile>
+    <StartupFile>startup\app.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -33,13 +33,13 @@
     <Compile Include="business_use_cases\users_use_cases\user_creator.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="main\configurations.py">
+    <Compile Include="startup\configurations.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="main\__init__.py">
+    <Compile Include="startup\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="main\app.py" />
+    <Compile Include="startup\app.py" />
     <Compile Include="repositories\database_singleton.py">
       <SubType>Code</SubType>
     </Compile>
@@ -55,7 +55,7 @@
     <Compile Include="web_api_s\user_api.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="main\web_api_registrator.py">
+    <Compile Include="startup\web_api_registrator.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="web_api_s\__init__.py">
@@ -67,7 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="business_use_cases\users_use_cases\" />
-    <Folder Include="main\" />
+    <Folder Include="startup\" />
     <Folder Include="business_use_cases\" />
     <Folder Include="web_api_s\" />
     <Folder Include="repositories\" />
