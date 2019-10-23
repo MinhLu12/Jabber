@@ -39,6 +39,9 @@
     <Compile Include="models\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="repositories\profile_repository.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="startup\configurations.py">
       <SubType>Code</SubType>
     </Compile>
@@ -56,6 +59,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tests\test_1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="web_api_s\profile_api.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="web_api_s\user_api.py">
