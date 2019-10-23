@@ -257,5 +257,6 @@ paket-files/
 .cr/
 
 # Python Tools for Visual Studio (PTVS)
+env/
 __pycache__/
 *.pyc
