@@ -30,7 +30,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="business_use_cases\users_use_cases\user_creator.py">
+    <Compile Include="models\domain\user_domain_model.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\domain\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="startup\configurations.py">
@@ -66,9 +72,9 @@
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="business_use_cases\users_use_cases\" />
+    <Folder Include="models\" />
+    <Folder Include="models\domain\" />
     <Folder Include="startup\" />
-    <Folder Include="business_use_cases\" />
     <Folder Include="web_api_s\" />
     <Folder Include="repositories\" />
     <Folder Include="tests\" />

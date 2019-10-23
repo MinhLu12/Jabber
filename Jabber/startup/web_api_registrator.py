@@ -1,6 +1,6 @@
 from flask import Flask
 from web_api_s.user_api import user_blueprint
-from startup import configurations as config
+from startup.configurations import Configuration as config
 
 def register_web_api_s():
     app = Flask(__name__)
